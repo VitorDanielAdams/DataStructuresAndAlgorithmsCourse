@@ -26,6 +26,12 @@ bool isFull(Queue* q) {
     return (q->tail == MAX_SIZE); 
 }
 
+int size(Queue* q) {
+    int size = q->tail - q->head - 1;
+    printf("Queue size: %d \n", size);
+    return size;
+}
+
 int peek(Queue* q) {
     if (isEmpty(q)) {
         printEmptyQueue();
@@ -76,9 +82,11 @@ int main()
 
     printf("peek element: %d\n", peek(&q));
     printQueue(&q);
+    size(&q);
 
     dequeue(&q);
     printQueue(&q);
-    
+    size(&q);
+
     return 0;
 }
